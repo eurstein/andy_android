@@ -11,6 +11,8 @@
 # Generated files
 bin/
 gen/
+examples/*/obj
+examples/*/out
 
 # Gradle files
 .gradle/
@@ -25,3 +27,7 @@ proguard/
 
 # Log Files
 *.log
+
+# Mac OSX files
+*~
+.DS_Store
