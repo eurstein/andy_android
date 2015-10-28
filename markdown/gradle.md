@@ -27,6 +27,13 @@ title: Android Studio and Gradle Configure
 	Android Studio若使用到了support library，必须下载Android Support Repository
 	1. 下载步骤路径: C:\Android\android-sdk(sdk_home) -> SDK Manager.exe -> Extras -> Android Support Repository
 	2. 下载后的存储路径：C:\Android\android-sdk\extras\android\m2repository
+	PS: mac系统下打开SDK Manager和AVD Manager的方法，
+```
+cd /Applications/Android/android-sdk/tools
+chmod +x android
+./android sdk
+./android avd
+```
 
 4. Run the app from a command line (gradle build command line)
 	1. 打开Android Studio内置终端
