@@ -1,0 +1,76 @@
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".MainActivity" >
+
+    <TextView
+        android:id="@+id/text_view_header"
+        android:layout_width="fill_parent"
+        android:layout_height="wrap_content"
+        android:gravity="center_horizontal"
+        android:text="Android Simple Service Example"
+        android:textColor="#FF0000"
+        android:textSize="20sp" />
+
+    <Button
+        android:id="@+id/start_service"
+        android:layout_width="fill_parent"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/text_view_header"
+        android:layout_marginTop="20dp"
+        android:gravity="center_horizontal"
+        android:onClick="onClickStartServie"
+        android:text="Start/Bind Service" />
+        
+    <Button
+        android:id="@+id/stop_service"
+        android:layout_width="fill_parent"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/start_service"
+        android:layout_marginTop="20dp"
+        android:gravity="center_horizontal"
+        android:onClick="onClickStopService"
+        android:text="Stop/Unbind Service" />
+    
+	<Button
+        android:id="@+id/say_hello_to_service"
+        android:layout_width="fill_parent"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/stop_service"
+        android:layout_marginTop="20dp"
+        android:gravity="center_horizontal"
+        android:onClick="onClickSayHelloToService"
+        android:text="Say_Hello_To_Service" />
+	
+    <Button
+        android:id="@+id/get_packageinfo_from_service"
+        android:layout_width="fill_parent"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/say_hello_to_service"
+        android:layout_marginTop="20dp"
+        android:gravity="center_horizontal"
+        android:onClick="onClickGetPackageInfoFromeService"
+        android:text="Get_PackageInfo_From_Service" />
+	
+    <Button
+        android:id="@+id/test_java_exception_in_service"
+        android:layout_width="fill_parent"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/get_packageinfo_from_service"
+        android:layout_marginTop="20dp"
+        android:gravity="center_horizontal"
+        android:onClick="onClickTestJavaExceptionInService"
+        android:text="Make_(Catched)_Java_Exception_In_Service" />
+    
+    <Button
+        android:id="@+id/test_java_exception_without_catch_in_service"
+        android:layout_width="fill_parent"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/test_java_exception_in_service"
+        android:layout_marginTop="20dp"
+        android:gravity="center_horizontal"
+        android:onClick="onClickTestJavaExceptionWithoutCatchInService"
+        android:text="Make_(NonCatch)_Java_Exception_In_Service"/>
+
+</RelativeLayout>

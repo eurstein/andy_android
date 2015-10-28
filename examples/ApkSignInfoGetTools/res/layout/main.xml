@@ -1,0 +1,44 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+              android:orientation="vertical"
+              android:layout_width="fill_parent"
+              android:layout_height="fill_parent"
+              android:background="@android:color/background_light">
+    <TextView
+            android:layout_width="fill_parent"
+            android:layout_height="wrap_content"
+            android:text="1. 未安装apk的签名信息,\n请将apk存至手机“/sdcard/1.apk&quot;\n"
+            android:id="@+id/textView" android:textSize="16dp"
+            android:textColor="@android:color/background_dark"/>
+    <Button
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="获取&quot;/sdcard/1.apk&quot;签名信息"
+            android:id="@+id/button" android:layout_gravity="center_horizontal"/>
+    <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:textAppearance="?android:attr/textAppearanceMedium"
+            android:text="2. 已安装apk的签名信息\n请输入apk名后点击获取按钮"
+            android:id="@+id/textView1" android:textSize="16dp"
+            android:textColor="@android:color/background_dark"/>
+    <EditText
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:id="@+id/editText" android:layout_gravity="center_horizontal"
+            android:singleLine="true" android:text="com.tencent.android.qqdownloader"/>
+    <Button
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="获取以上已安装apk签名信息"
+            android:id="@+id/button2" android:layout_gravity="center_horizontal"/>
+    <TextView
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:textAppearance="?android:attr/textAppearanceSmall"
+            android:scrollbars="vertical"
+            android:singleLine="false"
+            android:id="@+id/textView2" android:textSize="16sp" android:padding="10dp"
+            android:text="~" android:textColor="@android:color/background_dark"/>
+</LinearLayout>
+

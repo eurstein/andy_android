@@ -11,8 +11,8 @@
 # Generated files
 bin/
 gen/
-examples/*/obj
-examples/*/out
+obj/
+out/
 
 # Gradle files
 .gradle/

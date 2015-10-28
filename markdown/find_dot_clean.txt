@@ -1,0 +1,1 @@
+/usr/bin/find.exe . -name "._*" -print0 | xargs -0 rm
