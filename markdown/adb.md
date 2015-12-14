@@ -23,8 +23,13 @@ title: adb 常用命令
 | adb shell dumpsys meminfo <package_name> | |
 
 
+## 在非root手机上取已安装的apk文件
+adb shell
+pm list packages -f xxx
+exit
+adb pull /data/app/xxx.apk
 
-# Android内存分析
+## Android内存分析
 由于Linux的内存共享机制，每个应用使用了多少内存，并不能很准确的计算。通常我们有下面几种方式来衡量
 
 - VSS - Virtual Set Size 虚拟耗用内存（包含共享库占用的内存）
@@ -35,8 +40,19 @@ title: adb 常用命令
 一般来说内存占用大小有如下规律：VSS >= RSS >= PSS >= USS. 一般我们会用PSS来作为内存大小的衡量值
 
 
-# MAT
+## MAT
 http://www.cnblogs.com/wisekingokok/archive/2011/11/30/2245790.html
 _OQL:  select * from instanceof android.app.Activity_
+
+```
+// 开始 trace文件位置: /sdcard/cube.trace
+Debug.startMethodTracing("cube");
+
+// ...
+// 其他的代码
+
+// 停止
+Debug.stopMethodTracing();
+```
 
 http://kingbo203.iteye.com/blog/1988636
