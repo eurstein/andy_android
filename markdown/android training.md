@@ -51,8 +51,8 @@ To improve the layout efficiency when you specify the weight, you should change 
     android:layout_height="match_parent"
     android:orientation="horizontal">
     <EditText android:id="@+id/edit_message"
-        **android:layout_weight="1"**
-        **android:layout_width="0dp"**
+        android:layout_weight="1"
+        android:layout_width="0dp"
         android:layout_height="wrap_content"
         android:hint="@string/edit_message" />
     <Button

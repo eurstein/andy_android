@@ -196,3 +196,53 @@ git config --global core.filemode false  // 当遇到设置此值不生效时，
 git config --add core.filemode false // 设置此值将覆盖全局设置
 ```
 
+## [github 每次都输入密码](http://blog.csdn.net/yuquan0821/article/details/8210944)
+在github.com上 建立了一个小项目，可是在每次push  的时候，都要输入用户名和密码，很是麻烦
+
+原因是使用了https方式 push
+
+在termail里边 输入  git remote -v 
+
+可以看到形如一下的返回结果
+
+origin https://github.com/yuquan0821/demo.git (fetch)
+
+origin https://github.com/yuquan0821/demo.git (push)
+
+下面把它换成ssh方式的。
+
+1. git remote rm origin
+2. git remote add origin git@github.com:yuquan0821/demo.git
+3. git push origin 
+版权声明：本文为博主原创文章，未经博主允许不得转载。
+
+
+## [github ssh 配置](http://stackoverflow.com/questions/1521496/new-to-git-git-push-origin-master-ssh-exchange-identifiction-connection-clo)
+1. [设置代理vi .ssh/config](http://stackoverflow.com/questions/19161960/connect-with-ssh-through-a-proxy)
+```
+Host github github.com
+Hostname github.com 
+User git
+ProxyCommand      nc -X connect -x web-proxy.oa.com:8080 %h %p
+```
+
+2. GitHub is highly secured and follow ssh-rsa So we need to setup as ssh public key for our connection, and let github know about it.
+take terminal and as user ( not root, usually many of us have a habit of typing sudo su as the first commang at terminal, this time avoid it) type
+```
+ssh-keygen -t rsa -C "yourmailid@gmail.com"
+```
+Here, -t -> tells which encryption -C ->try to use the same mail id you have given ti github (for ease of memory)
+now you will get two files id_rsa and id_rsa.pub in ~/.ssh/
+now copy the whole content in file id_rsa.pub without altering the content of the file.
+Now go back to you github account. go to account settings >>> SSH Public Keys Add a new Key and paste the content you copied into field "key" and save (give a title of your choice).
+now github know to process the requests from your system.
+now try
+```
+$ssh git@github.com
+```
+The SSH key on your machine doesn't match the one that you have on record with GitHub. Type
+```
+cat ~/.ssh/id_rsa.pub | pbcopy
+```
+which will copy your public key to the clibboard. Then go to GitHub account settings and add it as a new key.
+
