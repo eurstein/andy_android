@@ -80,6 +80,11 @@ keytool -genkey -alias androiddebugkey -keyalg RSA -validity 40000 -keystore dem
              版本: 3
     ```
 
+5. 验证apk包签名
+    ```
+    jarsigner -verify -verbose -certs new.apk
+    ```
+    
 ## 注意事项：
 1. eclipse
     android工程的bin目录下的demo.apk默认是已经使用debug用户签名的，所以不能使用上述步骤对此文件再次签名。正确步骤应该是:在工程点击右键->Anroid Tools-Export Unsigned Application Package导出的apk采用上述步骤签名。

@@ -55,3 +55,42 @@ nager
 ```
 在jni开发中，有时候需要传入一个Context类型参数到C层，在使用javah生成头文件的时候，会报 javah Class android.content.Context could not be found.这个错误，原因是找不到android.content.Context该类，解决方法是，把Context类型改为Object类型即可。
 ```
+
+## Android.mk文件
+
+```
+LOCAL_PATH := $(call my-dir)
+
+include $(CLEAR_VARS)
+
+LOCAL_MODULE := analysisapk
+
+LOCAL_C_INCLUDES += $(LOCAL_PATH)
+
+LOCAL_C_INCLUDES += $(LOCAL_PATH)/src
+
+LOCAL_CFLAGS := -fvisibility=hidden # 可以有效减少so大小，注意导出需要符号表的函数
+
+LOCAL_LDLIBS += -L$(SYSROOT)/usr/lib -llog -lz
+
+APP_OPTIM := release
+
+LOCAL_SRC_FILES += core.cpp
+
+include $(BUILD_SHARED_LIBRARY) # 这个要写在最后
+```
+
+## 签名
+
+| Java类型 | 类型签名 |
+| ----------------------------- | -------------------------| 
+| boolean |	Z |
+| byte |	B |
+| char |	C |
+| short |	S |
+| int	| I |
+| long |	L |
+| float | 	F |
+| double |	D |
+| 类	| L全限定名;，比如String, 其签名为Ljava/lang/util/String; |
+| 数组	| [类型签名， 比如 [B |
