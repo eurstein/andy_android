@@ -32,3 +32,6 @@ proguard/
 # Mac OSX files
 *~
 .DS_Store
+
+# buck files
+buck-out/
