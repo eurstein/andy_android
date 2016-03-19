@@ -1,0 +1,93 @@
+repo切换分支
+查看可切换的分支
+cd .repo/manifests
+git branch -a | cut -d / -f 3
+
+以 gingerbread-release 分支为例
+repo init -b gingerbread-release 
+repo sync (not needed if your local copy is up to date)
+repo start gingerbread-release --all 
+查看当前的分支
+repo branches
+
+
+## ========= 切换分支 ===========
+```
+andygzyu@andygzyu-Lenovo:~/aosp/android-m-preview-1$ repo init -b android-m-preview-1
+
+Your identity is: Yu Guangzhen <eurstein@gmail.com>
+If you want to change this, please re-run 'repo init' with --config-name
+
+repo has been initialized in /home/andygzyu/aosp/android-m-preview-1
+andygzyu@andygzyu-Lenovo:~/aosp/android-m-preview-1$ repo branches
+   (no branches)
+andygzyu@andygzyu-Lenovo:~/aosp/android-m-preview-1$ repo sync
+
+
+
+andygzyu@andygzyu-Lenovo:~/aosp/android-m-preview-1$ repo branches
+   (no branches)
+andygzyu@andygzyu-Lenovo:~/aosp/android-m-preview-1$ repo start android-m-preview-1 --all
+Starting android-m-preview-1: 100% (472/472), done.  
+andygzyu@andygzyu-Lenovo:~/aosp/android-m-preview-1$ repo branches
+*  android-m-preview-1       | in all projects
+andygzyu@andygzyu-Lenovo:~/aosp/android-m-preview-1$ 
+
+========================
+```
+
+
+##[为Nexus5编译AndroidL固件](http://ju.outofmemory.cn/entry/129439)
+
+
+## [下载源码](https://source.android.com/source/downloading.html)
+
+- mkdir android-4.4.4_r2.0.1
+- cd !$
+- repo init -u https://android.googlesource.com/a/platform/manifest -b android-4.4.4_r2.0.1
+- repo sync
+
+## [编译源码](https://source.android.com/source/building.html)
+
+编译完成，执行如下命令可以将您刚build好的ROM在模拟器里运行起来，第一次启动的时间可能比较长：
+$ emulator &
+注意：如果提示找不到emulator命令，可将如下环境变量重新初始化一遍(也就是每次重新进入系统运行的时候，都需要初始化一遍)，lunch后面的参数要与你编译的ROM选项一致。
+[plain] view plaincopy
+$. build/envsetup.sh  
+$lunch aosp_arm-eng  
+转载请注明出处： 雨水：http://blog.csdn.net/gobitan/article/details/24367439 
+
+
+
+- source build/envsetup.sh
+- lunch aosp_hammerhead-userdebug // Nexus5
+- make -j8
+
+The BUILDTYPE is one of the following:
+
+| Buildtype    |	Use |
+| ------------ | -------------- |
+| user	       | limited access; suited for production |
+| userdebug    | like "user" but with root access and debuggability; preferred for debugging
+| eng	       | development configuration with additional debugging tools |
+For more information about building for and running on actual hardware, see Running Builds.
+
+## 刷机
+- adb reboot bootloader
+- fastboot flashall -w
+The -w option wipes the /data partition on the device; this is useful for your first time flashing a particular device but is otherwise unnecessary.
+
+## 运行模拟器
+- emulator
+
+## [Configuring USB Access](https://source.android.com/source/initializing.html)
+
+- wget -S -O - http://source.android.com/source/51-android.rules | sed "s/<username>/$USER/" | sudo tee >/dev/null /etc/udev/rules.d/51-android.rules; sudo udevadm control --reload-rules
+
+## java选择
+sudo update-alternatives --config java
+
+## javac选择
+sudo update-alternatives --config javac
+
+
