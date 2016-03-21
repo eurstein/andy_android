@@ -76,6 +76,8 @@ apktool d xx.apk -o directory
 apktool b directory
 ```
 
+##  Mac系统启动SDK管理
+`/Applications/Android/android-sdk/tools/android sdk`
 
 
 
