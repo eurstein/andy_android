@@ -1113,6 +1113,10 @@ And as a bonus...
 
 - Log.wtf: Use this when stuff goes absolutely, horribly, holy-crap wrong. You know those catch blocks where you're catching errors that you never should get...yea, if you wanna log them use Log.wtf
 
+## Log打印调用栈信息
+	Log.d("andygzyu", "notifyApkSwapFinished stack = " + Log.getStackTraceString(new Throwable()));
+
+
 ## Uri 通用资源标志符（Universal Resource Identifier, 简称"URI"）
 ContentUris
 UriMatcher
