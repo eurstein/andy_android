@@ -123,7 +123,7 @@ public class ListTest {
 
     public static void testIterateOverEmptyList() {
         ArrayList<String> list = new ArrayList<String>();
-        for (String item : list) { // 会报空指针错误NullPointerException
+        for (String item : list) { // 不会报空指针错误NullPointerException
             AndyLog.d(TAG, "item: " + item);
         }
     }
