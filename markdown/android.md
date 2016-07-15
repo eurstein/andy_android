@@ -10,6 +10,17 @@ Andriod应用程序如果要在手机或模拟器上安装，必须要有签名�
 ## 签名的意义
 为了保证每个应用程序开发商合法ID，防止部分开放商可能通过使用相同的Package Name来混淆替换已经安装的程序，我们需要对我们发布的APK文件进行唯一签名，保证我们每次发布的版本的一致性(如自动更新不会因为版本不一致而无法安装)。
 
+
+```
+	文档中提到的默认证书信息如下：
+	
+	Keystore name: “debug.keystore”
+	Keystore password: “android”
+	Key alias: “androiddebugkey”
+	Key password: “android”
+	CN: “CN=Android Debug,O=Android,C=US”
+```
+
 ## 签名的步骤
 1. 创建key 
 2. 使用步骤a中产生的key对apk签名
@@ -270,6 +281,15 @@ C:\Users\andygzyu>adb root
 adb server is out of date.  killing...
 * daemon started successfully *
 restarting adbd as root
+```
+
+3. 主动生成traces.txt文件
+```
+$chmod 777 /data/anr
+$rm /data/anr/traces.txt
+$ps
+$kill -3 PID
+adbpull data/anr/traces.txt ./mytraces.txt 
 ```
 
 
