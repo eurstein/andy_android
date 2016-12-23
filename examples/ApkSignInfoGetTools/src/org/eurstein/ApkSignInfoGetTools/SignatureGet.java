@@ -120,7 +120,7 @@ public class SignatureGet {
         if (packageInfo == null)
             return "failed";
 
-        StringBuilder sb = new StringBuilder();
+        StringBuilder sb = new StringBuilder("File:").append(packageInfo.applicationInfo.sourceDir).append("\n\n");
         if (packageInfo.signatures.length > 0) { // 取第一个证书
             Signature sign = packageInfo.signatures[packageInfo.signatures.length - 1];
             sb.append(packageInfo.packageName).append(" signature found, size:")

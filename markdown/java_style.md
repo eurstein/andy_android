@@ -1,3 +1,5 @@
+https://google.github.io/styleguide/javaguide.html
+
 Hawstein's Blog
 Home
 Archive

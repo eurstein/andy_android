@@ -289,7 +289,7 @@ $chmod 777 /data/anr
 $rm /data/anr/traces.txt
 $ps
 $kill -3 PID
-adbpull data/anr/traces.txt ./mytraces.txt 
+adb pull data/anr/traces.txt ./mytraces.txt 
 ```
 
 

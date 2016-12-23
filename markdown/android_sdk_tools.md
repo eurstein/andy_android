@@ -88,6 +88,11 @@ pm list packages -f xxx
 exit
 adb pull /data/app/xxx.apk
 
+C:\Users\andygzyu>adb shell
+shell@hammerhead:/ $ su
+root@hammerhead:/ # cd /data/app
+root@hammerhead:/data/app # ls | grep rootexplorer
+
 ## apktool
 1. 反编译
 http://ibotpeaches.github.io/Apktool/install/
