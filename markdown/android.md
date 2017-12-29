@@ -287,7 +287,7 @@ restarting adbd as root
 ```
 $chmod 777 /data/anr
 $rm /data/anr/traces.txt
-$ps
+$ps | grep -e USER -e qqdownloader
 $kill -3 PID
 adb pull data/anr/traces.txt ./mytraces.txt 
 ```

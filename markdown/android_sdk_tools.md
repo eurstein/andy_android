@@ -13,6 +13,8 @@ title: android sdk, tools ...
 | adb pull /sdcard/xx C:\xx     ||
 | adb push C:\xx /sdcard/xx     ||
 | adb shell dumpsys activity [packagename] | 查看活动页面 | 
+| adb shell dumpsys activity \| grep mFocused | 查看当前焦点Activity |
+| adb shell pm path [packagename] | 查看安装路径 |
 | dumpsys package | 查看所有安装的包信息 |
 | adb logcat | |
 | adb install -r <apkfile> | 更新安装(保留数据和缓存文件) |
@@ -23,8 +25,9 @@ title: android sdk, tools ...
 | adb shell am force-stop com.tencent.android.qqdownloader||
 | adb shell ps | 查看进程列表 |
 | adb shell ps -x [PID] | 查看指定进程状态 |
-| adb shell kill <pid> | 杀死一个进程 |
-| adb shell kill -3 <pid> | 输出一个进程状态 |
+| adb shell kill \<pid> | 杀死一个进程 |
+| adb shell pkill \<pname/command> | 杀死一个进程 |
+| adb shell kill -3 \<pid> | 输出一个进程状态 |
 | adb shell top | 查看内存（VSS RSS）和CPU使用情况 |
 | adb shell top -m 6 | 查看占用内存前6的app |
 | adb shell top -n 1 | 刷新一次内存信息，然后返回 |
@@ -35,7 +38,7 @@ title: android sdk, tools ...
 | adb shell cat /data/misc/wifi/*.conf | 查看wifi密码 |
 | adb logcat -c | 清除log缓存 |
 | adb shell cat /system/build.prop | 获取设备名称 |
-| adb shell dumpsys meminfo <package_name_or_pid> | | 
+| adb shell dumpsys meminfo \<package_name_or_pid> | | 
 | adb shell tcpdump -p -vv -s 0 -w /sdcard/capturenet.pcap | tcpdump包 |
 | adb pull /data/data/com.android.providers.contacts/databases/contacts2.db C:\Users\gzjaychen\Desktop\contact2.db| 获取联系人db |
 | adb shell pm list features | 查看手机feature |
@@ -46,6 +49,14 @@ title: android sdk, tools ...
 | adb reboot recovery | 重启到recovery，即恢复模式 |
 | adb shell cat /sys/class/net/wlan0/address | 获取机器MAC地址 |
 | adb shell cat /proc/cpuinfo | 获取CPU序列号 |
+| grep 'APK Sig Block 42' app.apk | apkv2签名 |
+| am start -n \<package>/\<activity> | 启动一个指定Activity，例子：<br/>am start-n com.android.gl2jni/.GL2JNIActivity <br/> am start -n com.android.gl2jni/com.android.gl2jni.GL2JNIActivity |
+| am start -a \<action>| 利用Action启动，例子：<br/> am start -a android.intent.action.VIEW -d  http://www.sina.com.cn  |
+| am startservice \<package>/\<services> | 启动Service |
+| adb shell am broadcast <参数> | 发送一个广播，参数有：<br/>\[-a \<ACTION>] <br/>[-d \<DATA_URI>] <br/>[-t \<MIME_TYPE>] <br/>[-c \<CATEGORY> [-c \<CATEGORY>] ...] <br/>[-e\|--es \<EXTRA_KEY> \<EXTRA_STRING_VALUE> ...] <br/>[--ez \<EXTRA_KEY> \<EXTRA_BOOLEAN_VALUE> ...] <br/>[-e\|--ei \<EXTRA_KEY> \<EXTRA_INT_VALUE> ...] <br/>[-n \<COMPONENT>] <br/>[-f \<FLAGS>] [\<URI>] <br/>例子：<br/>adb shell am broadcast -a com.android.test --es test_string "this is test string" --ei test_int 100 --ez test_boolean true |
+
+
+
 
 
 ## 拖放安装应用，不用再抱怨弹出xx助手xx宝来的蜗牛速度安装了（速度快了，心情好了）：
